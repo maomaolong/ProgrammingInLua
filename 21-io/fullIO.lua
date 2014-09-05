@@ -55,12 +55,18 @@ inp:close()
 outp:close()
 --]]
 
-
+---[[
 function fsize(file)
-	
+	local current = file:seek()
+	local size = file:seek("end")
+	file:seek("set",current)
+	return size
 end
 
-
+local file = assert(io.open("hello.txt","r"))
+print(fsize(file))
+file:close()
+--]]
 
 
 
