@@ -57,7 +57,7 @@ coroutine.resume(co,1,2)
 --]]
 
 
---[[
+---[[
 local co = coroutine.create(function()
 	return 2,3
 	end)
