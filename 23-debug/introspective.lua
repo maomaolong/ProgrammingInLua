@@ -48,7 +48,7 @@ foo(10,20)
 --]]
 
 
----[[
+--[[
 function getvarvalue(name)
 	local value,found
 	
@@ -88,6 +88,20 @@ function fun()
 end
 fun()
 --]]
+
+
+local co = coroutine.create(
+	function()
+		local x = 10
+		coroutine.yield()
+		error("this is a error")
+	end
+)
+
+coroutine.resume(co)
+print(debug.traceback(co))
+coroutine.resume(co)
+print(debug.traceback(co))
 
 
 
